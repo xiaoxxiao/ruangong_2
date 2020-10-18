@@ -1,4 +1,4 @@
-﻿
+
 
 /* 全部 */
 *{
@@ -32,8 +32,9 @@ body{
   height: 450px;
   border-radius: 15px;
   font-size: 0;
-  position: absolute;
-  display: inline-block;
+  /* position: absolute; */
+  position: relative;
+  /* display: inline-block; */
   background-color:rgb(231, 166, 177);
 
   
@@ -134,7 +135,7 @@ body{
   float:left;
   display:block;
   position: relative;
-  top:451px;
+  top:1px;
   background-color:powderblue;
   
   }
