@@ -288,7 +288,6 @@ function cheater_ce(str){
 
   if(first==last){ 
     alert("win"); 
-    console.log(first+"      "+last)
     return -2,-2;
   }
   else{
@@ -343,6 +342,17 @@ function change_nums(str,from,to){
   return new_str;
 }
 
+function change_strs(str,transprant_img){
+
+  var new_str="";
+  for(var i=0;i<str.length;i++){
+    if(str[i]=='0') new_str+=transprant_img;
+    else new_str+=str[i]
+  }
+  return new_str;
+}
+
+
 function findTransprantImg(str,transprant_img){
       for(var i=0;i<str.length;i++){
         if(str[i]==transprant_img)
@@ -350,11 +360,12 @@ function findTransprantImg(str,transprant_img){
       }
 }
 
-var qiangzhi_walks=18;
+var qiangzhi_walks=180;
 
 function ceshi(){
   transprant_img=document.getElementById("tranNums").value
   var str=document.getElementById("inputNums").value
+  str=change_strs(str,transprant_img)
 
   if(!judgeHaveSolutionStr(str)){
     var res="这个无解哦！！！再试试其他布局吧";
@@ -386,7 +397,12 @@ function ceshi(){
       }
       var res="最少需要走"+result+"步,"+  "</br>" +"路径是 : "+route+"\n"+"到达强制交换步数时序列是："+str;
     }else{
-      var res="最少需要走"+result+"步,"+  "</br>" +"路径是 : "+route;
+      if(route=="-2"){
+        var res="你已经赢了！"
+      }else{
+        var res="最少需要走"+result+"步,"+  "</br>" +"路径是 : "+route;
+      }
+     
     }
   }
   document.getElementById("result_id").innerHTML=res
